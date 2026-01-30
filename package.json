@@ -1,0 +1,80 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "caddyfile-tools",
+  "title": "Caddyfile Tools",
+  "description": "Manage Caddyfile for reverse proxy on NAS - open, generate passwords, apply changes",
+  "icon": "command-icon.png",
+  "author": "jurrejan",
+  "categories": ["Developer Tools"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "open-caddyfile",
+      "title": "Open Caddyfile",
+      "description": "Open Caddyfile in editor (local mount or SSH fallback)",
+      "mode": "no-view"
+    },
+    {
+      "name": "generate-password",
+      "title": "Generate Password (NAS)",
+      "description": "Run password generation script on NAS",
+      "mode": "no-view"
+    },
+    {
+      "name": "apply-caddyfile",
+      "title": "Apply Caddyfile",
+      "description": "Apply Caddyfile changes from Mac to NAS",
+      "mode": "no-view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "sshTarget",
+      "type": "textfield",
+      "title": "SSH Target",
+      "description": "SSH target for NAS (e.g. admin@nas.local)",
+      "required": true
+    },
+    {
+      "name": "remoteCaddyEtc",
+      "type": "textfield",
+      "title": "Remote Caddy Etc",
+      "description": "Remote caddy etc directory",
+      "required": false,
+      "default": "/share/Container/caddy"
+    },
+    {
+      "name": "localMount",
+      "type": "textfield",
+      "title": "Local Mount",
+      "description": "Local mount point for Container share",
+      "required": false,
+      "default": "/Volumes/share"
+    },
+    {
+      "name": "editorCmd",
+      "type": "textfield",
+      "title": "Editor Command",
+      "description": "Editor command (blank for Sublime/TextEdit fallback)",
+      "required": false,
+      "default": ""
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.83.0",
+    "@raycast/utils": "^1.17.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "^20.8.10",
+    "@types/react": "^18.3.3",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "ray build --skip-types -e dist -o dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint"
+  }
+}
