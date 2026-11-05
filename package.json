@@ -16,7 +16,7 @@
     },
     {
       "name": "generate-password",
-      "title": "Generate Password (NAS)",
+      "title": "Generate NAS Password",
       "description": "Run password generation script on NAS",
       "mode": "no-view"
     },
